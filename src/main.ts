@@ -1,8 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import swaggerUi from 'swagger-ui-express'
 import { env } from './config'
 import productRoutes from './routes/product-routes'
+import { swaggerDocument } from './config/swagger'
 
 dotenv.config()
 
@@ -21,10 +23,12 @@ mongoose
     console.error('🔌 Error connecting to MongoDB:', error)
   })
 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 app.use('/api/products', productRoutes)
 
 app.listen(env.PORT, () => {
   console.log(`🚀 Running on port ${env.PORT} `)
+  console.log(`🔌 API Docs: http://localhost:${env.PORT}/api-docs`)
 })
 
 export default app
