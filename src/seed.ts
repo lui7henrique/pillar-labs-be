@@ -25,7 +25,7 @@ async function seedProducts() {
       name: faker.commerce.productName(),
       description: faker.commerce.productDescription(),
       price: Number.parseFloat(faker.commerce.price({ min: 10, max: 1000 })),
-      stock: faker.number.int({ min: 0, max: 100 }),
+      quantity: faker.number.int({ min: 0, max: 100 }),
       category: faker.commerce.department(),
     }))
 

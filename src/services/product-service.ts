@@ -10,7 +10,7 @@ class ProductService {
     name: string
     description: string
     price: number
-    stock: number
+    quantity: number
     category: string
   }) {
     const product = new Product(productData)
@@ -23,7 +23,7 @@ class ProductService {
       name?: string
       description?: string
       price?: number
-      stock?: number
+      quantity?: number
       category?: string
     }
   ) {

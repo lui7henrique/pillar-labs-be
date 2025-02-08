@@ -4,7 +4,7 @@ interface IProduct {
   name: string
   description: string
   price: number
-  stock: number
+  quantity: number
   category: string
   createdAt: Date
   updatedAt: Date
@@ -27,10 +27,10 @@ const productSchema = new Schema<IProduct>(
       required: [true, 'Product price is required'],
       min: [0, 'Price cannot be negative'],
     },
-    stock: {
+    quantity: {
       type: Number,
-      required: [true, 'Product stock is required'],
-      min: [0, 'Stock cannot be negative'],
+      required: [true, 'Product quantity is required'],
+      min: [0, 'Quantity cannot be negative'],
       default: 0,
     },
     category: {

@@ -166,9 +166,9 @@ export const swaggerDocument = {
             description: 'Product price',
             minimum: 0,
           },
-          stock: {
+          quantity: {
             type: 'number',
-            description: 'Product stock quantity',
+            description: 'Product quantity',
             minimum: 0,
           },
           category: {
@@ -189,7 +189,7 @@ export const swaggerDocument = {
       },
       ProductInput: {
         type: 'object',
-        required: ['name', 'description', 'price', 'stock', 'category'],
+        required: ['name', 'description', 'price', 'quantity', 'category'],
         properties: {
           name: {
             type: 'string',
@@ -204,9 +204,9 @@ export const swaggerDocument = {
             description: 'Product price',
             minimum: 0,
           },
-          stock: {
+          quantity: {
             type: 'number',
-            description: 'Product stock quantity',
+            description: 'Product quantity',
             minimum: 0,
           },
           category: {
