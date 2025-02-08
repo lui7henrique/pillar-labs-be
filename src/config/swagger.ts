@@ -171,6 +171,10 @@ export const swaggerDocument = {
             description: 'Product stock quantity',
             minimum: 0,
           },
+          category: {
+            type: 'string',
+            description: 'Product category',
+          },
           createdAt: {
             type: 'string',
             format: 'date-time',
@@ -185,7 +189,7 @@ export const swaggerDocument = {
       },
       ProductInput: {
         type: 'object',
-        required: ['name', 'description', 'price', 'stock'],
+        required: ['name', 'description', 'price', 'stock', 'category'],
         properties: {
           name: {
             type: 'string',
@@ -204,6 +208,10 @@ export const swaggerDocument = {
             type: 'number',
             description: 'Product stock quantity',
             minimum: 0,
+          },
+          category: {
+            type: 'string',
+            description: 'Product category',
           },
         },
       },

@@ -5,6 +5,7 @@ interface IProduct {
   description: string
   price: number
   stock: number
+  category: string
   createdAt: Date
   updatedAt: Date
 }
@@ -32,6 +33,11 @@ const productSchema = new Schema<IProduct>(
       min: [0, 'Stock cannot be negative'],
       default: 0,
     },
+    category: {
+      type: String,
+      required: [true, 'Product category is required'],
+      trim: true,
+    },
   },
   {
     timestamps: true,
@@ -39,6 +45,6 @@ const productSchema = new Schema<IProduct>(
 )
 
 // Add text index for search functionality
-productSchema.index({ name: 'text', description: 'text' })
+productSchema.index({ name: 'text', description: 'text', category: 'text' })
 
 export const Product = model<IProduct>('Product', productSchema)

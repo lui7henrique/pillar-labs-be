@@ -3,7 +3,7 @@ import { faker } from '@faker-js/faker'
 import { Product } from './models/product'
 import { env } from './config'
 
-const NUM_PRODUCTS = 50
+const NUM_PRODUCTS = 20
 const MESSAGES_LOG = {
   CONNECTED: '🔌 Connected to MongoDB',
   DISCONNECTED: '🔌 Disconnected from MongoDB',
@@ -26,6 +26,7 @@ async function seedProducts() {
       description: faker.commerce.productDescription(),
       price: Number.parseFloat(faker.commerce.price({ min: 10, max: 1000 })),
       stock: faker.number.int({ min: 0, max: 100 }),
+      category: faker.commerce.department(),
     }))
 
     await Product.insertMany(products)

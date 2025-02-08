@@ -11,6 +11,7 @@ class ProductService {
     description: string
     price: number
     stock: number
+    category: string
   }) {
     const product = new Product(productData)
     return await product.save()
@@ -23,6 +24,7 @@ class ProductService {
       description?: string
       price?: number
       stock?: number
+      category?: string
     }
   ) {
     if (!Types.ObjectId.isValid(id)) {
