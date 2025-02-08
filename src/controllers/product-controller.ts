@@ -5,9 +5,7 @@ class ProductController {
   getAllProducts = async (_req: Request, res: Response) => {
     try {
       const products = await productService.getAllProducts()
-      return res.status(200).json({
-        data: products,
-      })
+      return res.status(200).json(products)
     } catch (error) {
       return res.status(500).json({
         message: 'Error fetching products',
@@ -34,9 +32,7 @@ class ProductController {
         stock: stock || 0,
       })
 
-      return res.status(201).json({
-        data: product,
-      })
+      return res.status(201).json(product)
     } catch (error) {
       return res.status(500).json({
         message: 'Error creating product',
@@ -53,9 +49,7 @@ class ProductController {
 
       const product = await productService.updateProduct(id, updateData)
 
-      return res.status(200).json({
-        data: product,
-      })
+      return res.status(200).json(product)
     } catch (error) {
       if (error instanceof Error && error.message === 'Product not found') {
         return res.status(404).json({
@@ -89,9 +83,7 @@ class ProductController {
 
       const products = await productService.searchProducts(q)
 
-      return res.status(200).json({
-        data: products,
-      })
+      return res.status(200).json(products)
     } catch (error) {
       return res.status(500).json({
         message: 'Error searching products',
