@@ -6,6 +6,7 @@ import cors from 'cors'
 import { env } from './config'
 import productRoutes from './routes/product-routes'
 import { swaggerDocument } from './config/swagger'
+import productCategoryRoutes from './routes/product-category-routes'
 
 dotenv.config()
 
@@ -32,6 +33,7 @@ app.get('/api-docs-json', (_req, res) => {
 })
 
 app.use('/api/products', productRoutes)
+app.use('/api/categories', productCategoryRoutes)
 
 app.listen(env.PORT, () => {
   console.log(`🚀 Running on port ${env.PORT} `)

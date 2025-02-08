@@ -143,6 +143,28 @@ export const swaggerDocument = {
         },
       },
     },
+    '/api/categories': {
+      get: {
+        operationId: 'getAllCategories',
+        summary: 'Get all product categories',
+        description: 'Retrieve a list of all product categories',
+        responses: {
+          '200': {
+            description: 'List of categories retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  type: 'array',
+                  items: {
+                    $ref: '#/components/schemas/ProductCategory',
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
   },
   components: {
     schemas: {
@@ -212,6 +234,33 @@ export const swaggerDocument = {
           category: {
             type: 'string',
             description: 'Product category',
+          },
+        },
+      },
+      ProductCategory: {
+        type: 'object',
+        properties: {
+          _id: {
+            type: 'string',
+            description: 'Category ID',
+          },
+          name: {
+            type: 'string',
+            description: 'Category name',
+          },
+          description: {
+            type: 'string',
+            description: 'Category description',
+          },
+          createdAt: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Creation timestamp',
+          },
+          updatedAt: {
+            type: 'string',
+            format: 'date-time',
+            description: 'Last update timestamp',
           },
         },
       },
