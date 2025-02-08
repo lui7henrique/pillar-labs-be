@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import { productController } from '../controllers/product-controller'
 
-const router = Router()
+const router: Router = Router()
 
 router.get('/', (req, res) => {
   productController.getAllProducts(req, res)

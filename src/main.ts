@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { type Express } from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import swaggerUi from 'swagger-ui-express'
@@ -9,7 +9,7 @@ import { swaggerDocument } from './config/swagger'
 
 dotenv.config()
 
-const app = express()
+const app: Express = express()
 
 app.use(cors())
 app.use(express.json())

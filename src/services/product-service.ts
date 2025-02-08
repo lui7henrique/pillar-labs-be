@@ -1,8 +1,8 @@
-import { Product } from '../models/product'
+import { type IProduct, Product } from '../models/product'
 import { Types } from 'mongoose'
 
 class ProductService {
-  async getAllProducts() {
+  async getAllProducts(): Promise<IProduct[]> {
     return await Product.find().sort({ createdAt: -1 })
   }
 
@@ -12,7 +12,7 @@ class ProductService {
     price: number
     quantity: number
     category: string
-  }) {
+  }): Promise<IProduct> {
     const product = new Product(productData)
     return await product.save()
   }
@@ -26,7 +26,7 @@ class ProductService {
       quantity?: number
       category?: string
     }
-  ) {
+  ): Promise<IProduct> {
     if (!Types.ObjectId.isValid(id)) {
       throw new Error('Invalid product ID')
     }
@@ -44,7 +44,7 @@ class ProductService {
     return product
   }
 
-  async searchProducts(searchTerm: string) {
+  async searchProducts(searchTerm: string): Promise<IProduct[]> {
     return await Product.find(
       { $text: { $search: searchTerm } },
       { score: { $meta: 'textScore' } }
