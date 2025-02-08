@@ -24,6 +24,11 @@ mongoose
   })
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+app.get('/api-docs-json', (_req, res) => {
+  res.setHeader('Content-Type', 'application/json')
+  res.send(swaggerDocument)
+})
+
 app.use('/api/products', productRoutes)
 
 app.listen(env.PORT, () => {

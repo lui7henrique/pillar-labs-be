@@ -14,6 +14,7 @@ export const swaggerDocument = {
   paths: {
     '/api/products': {
       get: {
+        operationId: 'getAllProducts',
         summary: 'Get all products',
         description: 'Retrieve a list of all products',
         responses: {
@@ -33,6 +34,7 @@ export const swaggerDocument = {
         },
       },
       post: {
+        operationId: 'createProduct',
         summary: 'Create a new product',
         description: 'Create a new product with the provided data',
         requestBody: {
@@ -64,6 +66,7 @@ export const swaggerDocument = {
     },
     '/api/products/search': {
       get: {
+        operationId: 'searchProducts',
         summary: 'Search products',
         description: 'Search products by text query',
         parameters: [
@@ -96,6 +99,7 @@ export const swaggerDocument = {
     },
     '/api/products/{id}': {
       put: {
+        operationId: 'updateProduct',
         summary: 'Update a product',
         description: 'Update a product by its ID',
         parameters: [
