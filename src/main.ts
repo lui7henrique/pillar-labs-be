@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import swaggerUi from 'swagger-ui-express'
+import cors from 'cors'
 import { env } from './config'
 import productRoutes from './routes/product-routes'
 import { swaggerDocument } from './config/swagger'
@@ -10,6 +11,7 @@ dotenv.config()
 
 const app = express()
 
+app.use(cors())
 app.use(express.json())
 
 mongoose

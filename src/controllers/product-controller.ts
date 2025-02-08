@@ -6,12 +6,10 @@ class ProductController {
     try {
       const products = await productService.getAllProducts()
       return res.status(200).json({
-        success: true,
         data: products,
       })
     } catch (error) {
       return res.status(500).json({
-        success: false,
         message: 'Error fetching products',
         error:
           error instanceof Error ? error.message : 'Unknown error occurred',
@@ -25,7 +23,6 @@ class ProductController {
 
       if (!name || !description || !price) {
         return res.status(400).json({
-          success: false,
           message: 'Missing required fields',
         })
       }
@@ -38,12 +35,10 @@ class ProductController {
       })
 
       return res.status(201).json({
-        success: true,
         data: product,
       })
     } catch (error) {
       return res.status(500).json({
-        success: false,
         message: 'Error creating product',
         error:
           error instanceof Error ? error.message : 'Unknown error occurred',
@@ -59,26 +54,22 @@ class ProductController {
       const product = await productService.updateProduct(id, updateData)
 
       return res.status(200).json({
-        success: true,
         data: product,
       })
     } catch (error) {
       if (error instanceof Error && error.message === 'Product not found') {
         return res.status(404).json({
-          success: false,
           message: error.message,
         })
       }
 
       if (error instanceof Error && error.message === 'Invalid product ID') {
         return res.status(400).json({
-          success: false,
           message: error.message,
         })
       }
 
       return res.status(500).json({
-        success: false,
         message: 'Error updating product',
         error:
           error instanceof Error ? error.message : 'Unknown error occurred',
@@ -92,7 +83,6 @@ class ProductController {
 
       if (!q || typeof q !== 'string') {
         return res.status(400).json({
-          success: false,
           message: 'Search term is required',
         })
       }
@@ -100,12 +90,10 @@ class ProductController {
       const products = await productService.searchProducts(q)
 
       return res.status(200).json({
-        success: true,
         data: products,
       })
     } catch (error) {
       return res.status(500).json({
-        success: false,
         message: 'Error searching products',
         error:
           error instanceof Error ? error.message : 'Unknown error occurred',
