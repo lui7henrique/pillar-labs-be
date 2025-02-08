@@ -1,7 +1,3 @@
-# Pillar Labs - Backend
-
-API RESTful para gerenciamento de produtos, desenvolvida com Node.js e TypeScript.
-
 ## ⚡ Tools Used
 
 - **Runtime**: Node.js
