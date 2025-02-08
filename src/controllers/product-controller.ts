@@ -17,7 +17,7 @@ class ProductController {
 
   createProduct = async (req: Request, res: Response) => {
     try {
-      const { name, description, price, stock } = req.body
+      const { name, description, price, quantity, category } = req.body
 
       if (!name || !description || !price) {
         return res.status(400).json({
@@ -29,7 +29,8 @@ class ProductController {
         name,
         description,
         price,
-        stock: stock || 0,
+        quantity: quantity || 0,
+        category: category || '',
       })
 
       return res.status(201).json(product)
