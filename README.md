@@ -33,7 +33,7 @@
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/pillar-labs-be
+git clone https://github.com/lui7henrique/pillar-labs-be
 cd pillar-labs-be
 ```
 
