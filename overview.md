@@ -22,5 +22,9 @@ A Express andTypeScript API project that helps manage products and categories.
 - Zod for checking environment settings
 - Hot reloading with tsx
 
+# Deploy
+
+- Railway (Application and MongoDB)
+
 > The project follows good practices like error handling, input checking, and clear separation of code responsibilities.
 > It provides a solid base and easy to extend for a product management system.
