@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express'
 import { productService } from '../services/product-service'
 
+// Product controller w/ CRUD operations
 class ProductController {
   getAllProducts = async (_req: Request, res: Response) => {
     try {

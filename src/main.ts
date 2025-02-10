@@ -27,11 +27,14 @@ mongoose
   })
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
+// Sending the swagger document as a json file, for use in the frontend (Orval generation)
 app.get('/api-docs-json', (_req, res) => {
   res.setHeader('Content-Type', 'application/json')
   res.send(swaggerDocument)
 })
 
+// Routes
 app.use('/api/products', productRoutes)
 app.use('/api/categories', productCategoryRoutes)
 

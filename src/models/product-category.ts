@@ -7,6 +7,7 @@ export interface IProductCategory {
   updatedAt: Date
 }
 
+// Product category schema with the required fields and timestamps (createdAt and updatedAt)
 const productCategorySchema = new Schema<IProductCategory>(
   {
     name: {
@@ -26,6 +27,7 @@ const productCategorySchema = new Schema<IProductCategory>(
   }
 )
 
+// Export the product category model
 export const ProductCategory = model<IProductCategory>(
   'ProductCategory',
   productCategorySchema

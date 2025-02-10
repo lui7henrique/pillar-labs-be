@@ -10,6 +10,7 @@ export interface IProduct {
   updatedAt: Date
 }
 
+// Product schema with the required fields and timestamps (createdAt and updatedAt)
 const productSchema = new Schema<IProduct>(
   {
     name: {
@@ -47,4 +48,5 @@ const productSchema = new Schema<IProduct>(
 // Add text index for search functionality
 productSchema.index({ name: 'text', description: 'text', category: 'text' })
 
+// Export the product model
 export const Product = model<IProduct>('Product', productSchema)
